@@ -5,18 +5,18 @@ import QuestionOne from './pages/QuestionOne'
 import QuestionTwo from './pages/QuestionTwo'
 import Results from './pages/Results'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 //import firebaseconfig from './config/firebaseconfig'
 
 export default function App() {
     return (
         <Router>
-            <Routes>
+            <Switch>
                 <Route exact path="/" component={ Home } />
                 <Route exact path="/question-one" component={ QuestionOne } />
                 <Route exact path="/question-two" component={ QuestionTwo } />
                 <Route exact path="/results" component={ Results } />
-            </Routes>
+            </Switch>
         </Router>
     );
 }
