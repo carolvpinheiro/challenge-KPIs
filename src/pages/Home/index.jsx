@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
     return(
@@ -7,7 +8,9 @@ function Home() {
 
             <p>Queremos saber o seu nível de satisfação com a empresa.</p>
 
-            <button>Iniciar Pesquisa</button>
+            <Link to="/question-one">
+                <button type="button">Iniciar Pesquisa</button>
+            </Link>
         </>
     )
 }

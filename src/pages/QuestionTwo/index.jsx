@@ -1,22 +1,27 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function QuestionTwo() {
+    const [valuation, setValuation] = useState(0);
+    const valuationValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
     return(
         <>
             <h1>Qual a sua satisfação com a empresa?</h1>
 
-            <div>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>10</button>
+            <div onClick={e => setValuation(e.target.value)}>
+                {
+                    valuationValues.map((value) =>  <button value={value}>{value}</button>)
+                }
             </div>
+
+            <Link to="/question-one">
+                <button type="button">Voltar</button>
+            </Link>
+
+            <Link to="/results">
+                <button type="button">Finalizar</button>
+            </Link>
 
         </>
     )
