@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function QuestionTwo() {
@@ -11,7 +11,7 @@ function QuestionTwo() {
 
             <div onClick={e => setValuation(e.target.value)}>
                 {
-                    valuationValues.map((value) =>  <button value={value}>{value}</button>)
+                    valuationValues.map((value) =>  <button key={value} value={value}>{value}</button>)
                 }
             </div>
 

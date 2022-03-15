@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { db } from '../../config/firebaseconfig';
+import { addDoc, collection } from 'firebase/firestore'
 
 function QuestionOne() {
-    const [ quantPeople, setQuantPeople ] = useState('one-to-three');
+    const [ quantPeople, setQuantPeople ] = useState([]);
+    const quantPeopleCollectionRef = collection(db, "questionOne");
+    
+    const addAnswer = async () => {
+        await addDoc(quantPeopleCollectionRef, { quantity: quantPeople })
+    }
 
     return(
         <>
@@ -17,7 +24,7 @@ function QuestionOne() {
             </div>
 
             <Link to="/question-two">
-                <button type="button">Continuar</button>
+                <button type="button" onClick={addAnswer}>Continuar</button>
             </Link>
            
         </>
